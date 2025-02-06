@@ -25,6 +25,8 @@ jobs:
       - name: Build extension
         run: pnpm build
         working-directory: ./deployables/extension
+        env:
+          COMPANION_APP_URL: ${{ github.event.deployment_status.target_url }}
 
       - name: Install Playwright Browsers
         run: pnpm playwright install --with-deps chromium
