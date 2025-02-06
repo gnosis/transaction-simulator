@@ -1,10 +1,15 @@
 import type { Page } from '@playwright/test'
+import { expect } from './fixture'
 import { getExtensionPage } from './getExtensionPage'
 
 export const loadExtension = async (page: Page) => {
-  await page.goto('/')
+  await page.getByRole('button', { name: 'Open Pilot' }).click()
 
-  await page.getByRole('button', { name: 'Open extension' }).click()
+  const extension = await getExtensionPage(page)
 
-  return getExtensionPage(page)
+  await expect(
+    extension.getByRole('heading', { name: 'Welcome to Zodiac Pilot' }),
+  ).toBeInViewport()
+
+  return extension
 }

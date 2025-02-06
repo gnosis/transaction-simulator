@@ -1,5 +1,4 @@
-import test, { expect } from '@playwright/test'
-import { loadExtension } from '../utils'
+import { expect, loadExtension, test } from '../utils'
 
 test.describe('Edit route', () => {
   test('it is possible to save a route', async ({ page }) => {
