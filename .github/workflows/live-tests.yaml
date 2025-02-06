@@ -27,7 +27,10 @@ jobs:
         working-directory: ./deployables/extension
         env:
           COMPANION_APP_URL: ${{ github.event.deployment_status.target_url }}
-          NODE_ENV: development
+
+      - name: Build manifest
+        run: pnpm update-manifest -v v4.0.0
+        working-directory: ./deployables/extension
 
       - name: Install Playwright Browsers
         run: pnpm playwright install --with-deps chromium
