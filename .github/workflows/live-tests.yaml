@@ -47,5 +47,5 @@ jobs:
         if: ${{ !cancelled() }}
         with:
           name: playwright-report
-          path: deployables/app/playwright-report/
+          path: ${{ github.workspace }}/**/playwright-report/**/*
           retention-days: 30
