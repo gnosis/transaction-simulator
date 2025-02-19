@@ -11,5 +11,7 @@ export const loadExtension = async (page: Page) => {
     extension.getByRole('heading', { name: 'Welcome to Zodiac Pilot' }),
   ).toBeInViewport()
 
+  await expect(page.getByText('Connected')).toBeInViewport()
+
   return extension
 }
