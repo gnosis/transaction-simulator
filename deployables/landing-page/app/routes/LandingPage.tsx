@@ -1,40 +1,12 @@
-import {
-  SiChromewebstore,
-  SiDiscord,
-  SiGithub,
-} from '@icons-pack/react-simple-icons'
-import { PilotType, PrimaryLinkButton, ZodiacOsPlain } from '@zodiac/ui'
+import { SiChromewebstore } from '@icons-pack/react-simple-icons'
+import { PrimaryLinkButton } from '@zodiac/ui'
+import { Header } from './components/Header'
 import darkScreenshot from './extension-dark.png'
 import lightScreenshot from './extension-light.png'
 
 const LandingPage = () => (
-  <div className="mx-8 my-8 flex flex-col justify-between lg:mx-auto lg:w-2/3">
-    <header className="mb-24 flex items-center justify-between lg:my-24">
-      <div className="flex items-center gap-4">
-        <ZodiacOsPlain className="h-6 lg:h-8" />
-        <PilotType className="h-8 lg:h-10 dark:invert" />
-      </div>
-
-      <aside className="flex gap-4">
-        <a
-          href="https://discord.com/channels/881881751369175040/884777203332710460"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          <span className="sr-only">Open Discord</span>
-          <SiDiscord className="size-6 lg:size-8" />
-        </a>
-
-        <a
-          href="https://github.com/gnosis/zodiac-pilot"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          <span className="sr-only">View on GitHub</span>
-          <SiGithub className="size-6 lg:size-8" />
-        </a>
-      </aside>
-    </header>
+  <div className="mx-8 flex flex-col justify-between lg:mx-auto lg:w-2/3">
+    <Header />
     <main className="flex max-w-7xl flex-col justify-center gap-24 self-center">
       <h1 className="text-balance text-center text-3xl font-thin lg:text-5xl">
         Secure, flexible, smart accounts with the ease of a browser extension.
