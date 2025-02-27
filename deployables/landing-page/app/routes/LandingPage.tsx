@@ -1,6 +1,6 @@
 import { SiChromewebstore } from '@icons-pack/react-simple-icons'
 import { PrimaryLinkButton } from '@zodiac/ui'
-import { Header } from './components/Header'
+import { Header, Hero } from './components'
 import darkScreenshot from './extension-dark.png'
 import lightScreenshot from './extension-light.png'
 
@@ -8,6 +8,8 @@ const LandingPage = () => (
   <div className="mx-8 flex flex-col justify-between lg:mx-auto lg:w-2/3">
     <Header />
     <main className="flex max-w-7xl flex-col justify-center gap-24 self-center">
+      <Hero />
+
       <h1 className="text-balance text-center text-3xl font-thin lg:text-5xl">
         Secure, flexible, smart accounts with the ease of a browser extension.
       </h1>

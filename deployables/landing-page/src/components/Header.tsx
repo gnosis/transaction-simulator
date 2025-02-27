@@ -90,7 +90,7 @@ export function Header() {
           <div className="flex items-center md:gap-x-12">
             <a href="/#" className="flex items-center gap-4" aria-label="Home">
               <ZodiacOsPlain className="h-10 w-auto" />
-              <PilotType className="h-6" />
+              <PilotType className="h-6 dark:invert" />
             </a>
             <div className="hidden md:flex md:gap-x-6">
               <GhostLinkButton to="#features">Features</GhostLinkButton>
