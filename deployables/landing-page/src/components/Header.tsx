@@ -6,12 +6,14 @@ import {
 } from '@headlessui/react'
 import { SiChromewebstore } from '@icons-pack/react-simple-icons'
 import {
+  GhostButton,
   GhostLinkButton,
   PilotType,
   PrimaryLinkButton,
   ZodiacOsPlain,
 } from '@zodiac/ui'
 import classNames from 'classnames'
+import { Menu } from 'lucide-react'
 import { Container } from './Container'
 
 function MobileNavLink({
@@ -58,15 +60,12 @@ function MobileNavIcon({ open }: { open: boolean }) {
 function MobileNavigation() {
   return (
     <Popover>
-      <PopoverButton
-        className="focus:not-data-focus:outline-hidden relative z-10 flex h-8 w-8 items-center justify-center"
-        aria-label="Toggle Navigation"
-      >
-        {({ open }) => <MobileNavIcon open={open} />}
+      <PopoverButton iconOnly as={GhostButton} icon={Menu}>
+        Toggle Navigation
       </PopoverButton>
       <PopoverBackdrop
         transition
-        className="data-closed:opacity-0 data-enter:ease-out data-leave:ease-in fixed inset-0 bg-slate-300/50 duration-150"
+        className="data-closed:opacity-0 data-enter:ease-out data-leave:ease-in fixed inset-0 bg-zinc-300/50 backdrop-blur duration-150 dark:bg-zinc-800/50"
       />
       <PopoverPanel
         transition
