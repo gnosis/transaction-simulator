@@ -56,9 +56,9 @@ export const RouteBubble = () => {
           pilotAddress={pilotAddress}
         />
 
-        <p className="overflow-hidden text-ellipsis whitespace-nowrap">
+        <h1 className="overflow-hidden text-ellipsis whitespace-nowrap">
           {route.label || <span className="italic">Unnamed route</span>}
-        </p>
+        </h1>
       </div>
 
       <div className="flex shrink-0">
