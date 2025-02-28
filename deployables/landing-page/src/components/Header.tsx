@@ -70,16 +70,17 @@ export function Header() {
             </div>
           </div>
           <div className="flex items-center gap-x-5 md:gap-x-8">
-            <div className="hidden md:block">
+            <div className="hidden gap-x-5 md:flex md:gap-x-8">
               <GhostLinkButton to="/login">Sign in</GhostLinkButton>
+
+              <PrimaryLinkButton
+                openInNewWindow
+                to="https://chrome.google.com/webstore/detail/zodiac-pilot/jklckajipokenkbbodifahogmidkekcb"
+                icon={SiGooglechrome}
+              >
+                Add to Chrome
+              </PrimaryLinkButton>
             </div>
-            <PrimaryLinkButton
-              openInNewWindow
-              to="https://chrome.google.com/webstore/detail/zodiac-pilot/jklckajipokenkbbodifahogmidkekcb"
-              icon={SiGooglechrome}
-            >
-              Add to Chrome
-            </PrimaryLinkButton>
             <div className="-mr-1 md:hidden">
               <MobileNavigation />
             </div>

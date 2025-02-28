@@ -1,4 +1,4 @@
-import { SiGithub } from '@icons-pack/react-simple-icons'
+import { SiGithub, SiGooglechrome } from '@icons-pack/react-simple-icons'
 import { PrimaryLinkButton, SecondaryLinkButton } from '@zodiac/ui'
 import { Container } from './Container'
 
@@ -21,12 +21,15 @@ export function Hero() {
         </span>{' '}
         Execution
       </h1>
-      <p className="mx-auto my-12 max-w-2xl text-lg tracking-tight text-zinc-700 dark:text-zinc-400">
+      <p className="mx-auto my-12 max-w-2xl text-balance text-lg tracking-tight text-zinc-700 dark:text-zinc-400">
         Zodiac Pilot transforms how Safes interact with web3, making dapp
         transactions seamless and secure
       </p>
-      <div className="flex justify-center gap-x-6">
-        <PrimaryLinkButton to="https://chrome.google.com/webstore/detail/zodiac-pilot/jklckajipokenkbbodifahogmidkekcb">
+      <div className="flex flex-wrap justify-center gap-6">
+        <PrimaryLinkButton
+          icon={SiGooglechrome}
+          to="https://chrome.google.com/webstore/detail/zodiac-pilot/jklckajipokenkbbodifahogmidkekcb"
+        >
           Add Pilot to Your Browser
         </PrimaryLinkButton>
 
@@ -34,7 +37,7 @@ export function Hero() {
           icon={SiGithub}
           to="https://github.com/gnosisguild/zodiac-pilot"
         >
-          View GitHub
+          View on GitHub
         </SecondaryLinkButton>
 
         <SecondaryLinkButton to="https://www.zodiac.wiki/documentation/pilot-extension">
