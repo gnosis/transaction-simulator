@@ -4,7 +4,7 @@ import {
   PopoverButton,
   PopoverPanel,
 } from '@headlessui/react'
-import { SiChromewebstore } from '@icons-pack/react-simple-icons'
+import { SiGooglechrome } from '@icons-pack/react-simple-icons'
 import {
   GhostButton,
   GhostLinkButton,
@@ -12,7 +12,6 @@ import {
   PrimaryLinkButton,
   ZodiacOsPlain,
 } from '@zodiac/ui'
-import classNames from 'classnames'
 import { Menu } from 'lucide-react'
 import { Container } from './Container'
 
@@ -27,33 +26,6 @@ function MobileNavLink({
     <PopoverButton as={'a'} href={href} className="block w-full p-2">
       {children}
     </PopoverButton>
-  )
-}
-
-function MobileNavIcon({ open }: { open: boolean }) {
-  return (
-    <svg
-      aria-hidden="true"
-      className="h-3.5 w-3.5 overflow-visible stroke-slate-700"
-      fill="none"
-      strokeWidth={2}
-      strokeLinecap="round"
-    >
-      <path
-        d="M0 1H14M0 7H14M0 13H14"
-        className={classNames(
-          'origin-center transition',
-          open && 'scale-90 opacity-0',
-        )}
-      />
-      <path
-        d="M2 2L12 12M12 2L2 12"
-        className={classNames(
-          'origin-center transition',
-          !open && 'scale-90 opacity-0',
-        )}
-      />
-    </svg>
   )
 }
 
@@ -104,7 +76,7 @@ export function Header() {
             <PrimaryLinkButton
               openInNewWindow
               to="https://chrome.google.com/webstore/detail/zodiac-pilot/jklckajipokenkbbodifahogmidkekcb"
-              icon={SiChromewebstore}
+              icon={SiGooglechrome}
             >
               Add to Chrome
             </PrimaryLinkButton>

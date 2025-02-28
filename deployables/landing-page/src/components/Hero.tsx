@@ -1,12 +1,12 @@
+import { SiGithub } from '@icons-pack/react-simple-icons'
 import { PrimaryLinkButton, SecondaryLinkButton } from '@zodiac/ui'
-import { Play } from 'lucide-react'
 import { Container } from './Container'
 
 export function Hero() {
   return (
     <Container className="pb-16 pt-20 text-center lg:pt-32">
       <h1 className="font-display mx-auto max-w-4xl text-5xl font-medium tracking-tight text-zinc-900 sm:text-7xl dark:text-white">
-        Granular Control
+        Granular Control,
         <br />
         <span className="relative whitespace-nowrap text-indigo-600 dark:text-teal-600">
           <svg
@@ -26,12 +26,19 @@ export function Hero() {
         transactions seamless and secure
       </p>
       <div className="flex justify-center gap-x-6">
-        <PrimaryLinkButton to="/register">Get 6 months free</PrimaryLinkButton>
+        <PrimaryLinkButton to="https://chrome.google.com/webstore/detail/zodiac-pilot/jklckajipokenkbbodifahogmidkekcb">
+          Add Pilot to Your Browser
+        </PrimaryLinkButton>
+
         <SecondaryLinkButton
-          icon={Play}
-          to="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+          icon={SiGithub}
+          to="https://github.com/gnosisguild/zodiac-pilot"
         >
-          Watch video
+          View GitHub
+        </SecondaryLinkButton>
+
+        <SecondaryLinkButton to="https://www.zodiac.wiki/documentation/pilot-extension">
+          Explore operator tutorial
         </SecondaryLinkButton>
       </div>
       <div className="mt-36 lg:mt-44">
