@@ -1,4 +1,10 @@
-import { Header, Hero, PrimaryFeatures, SecondaryFeatures } from './components'
+import {
+  CallToAction,
+  Header,
+  Hero,
+  PrimaryFeatures,
+  SecondaryFeatures,
+} from './components'
 
 export const LandingPage = () => (
   <div className="flex flex-col">
@@ -8,6 +14,7 @@ export const LandingPage = () => (
       <Hero />
       <PrimaryFeatures />
       <SecondaryFeatures />
+      <CallToAction />
     </main>
   </div>
 )
