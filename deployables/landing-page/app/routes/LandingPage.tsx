@@ -4,6 +4,7 @@ import {
   Hero,
   PrimaryFeatures,
   SecondaryFeatures,
+  Testimonials,
 } from './components'
 
 export const LandingPage = () => (
@@ -15,6 +16,7 @@ export const LandingPage = () => (
       <PrimaryFeatures />
       <SecondaryFeatures />
       <CallToAction />
+      <Testimonials />
     </main>
   </div>
 )
