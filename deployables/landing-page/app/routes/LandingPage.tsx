@@ -1,5 +1,6 @@
 import {
   CallToAction,
+  Footer,
   Header,
   Hero,
   PrimaryFeatures,
@@ -18,6 +19,8 @@ export const LandingPage = () => (
       <CallToAction />
       <Testimonials />
     </main>
+
+    <Footer />
   </div>
 )
 
