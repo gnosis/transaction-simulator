@@ -59,10 +59,10 @@ export function PrimaryFeatures() {
     <section
       id="features"
       aria-label="Features for running your books"
-      className="relative overflow-hidden bg-blue-600 pb-28 pt-20 sm:py-32"
+      className="relative overflow-hidden pb-28 pt-20 sm:py-32 dark:bg-teal-700"
     >
       <img
-        className="dark:hue-rotate-310 absolute left-1/2 top-1/2 max-w-none translate-x-[-44%] translate-y-[-42%] brightness-125 contrast-75 hue-rotate-30 dark:brightness-75 dark:contrast-75"
+        className="dark:hue-rotate-305 absolute top-0 w-full brightness-125 contrast-75 hue-rotate-30 dark:brightness-75 dark:contrast-75"
         src={backgroundImage}
         alt=""
         width={2245}

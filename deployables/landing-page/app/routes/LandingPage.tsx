@@ -1,4 +1,4 @@
-import { Header, Hero, PrimaryFeatures } from './components'
+import { Header, Hero, PrimaryFeatures, SecondaryFeatures } from './components'
 
 export const LandingPage = () => (
   <div className="flex flex-col">
@@ -7,6 +7,7 @@ export const LandingPage = () => (
     <main className="flex flex-col">
       <Hero />
       <PrimaryFeatures />
+      <SecondaryFeatures />
     </main>
   </div>
 )
