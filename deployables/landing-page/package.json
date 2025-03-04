@@ -31,6 +31,7 @@
     "typescript": "5.8.2",
     "vite": "6.2.0",
     "vite-plugin-open-graph": "2.0.6",
+    "vite-tsconfig-paths": "5.1.4",
     "wrangler": "3.113.0"
   },
   "scripts": {

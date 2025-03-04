@@ -5,7 +5,10 @@
     "baseUrl": ".",
     "types": ["@cloudflare/workers-types", "vite/client"],
     "lib": ["dom", "dom.iterable", "esnext"],
-    "rootDirs": [".", "./.react-router/types"]
+    "rootDirs": [".", "./.react-router/types"],
+    "paths": {
+      "@/images/*": ["./src/images/*"]
+    }
   },
   "include": [
     ".react-router/types/**/*",

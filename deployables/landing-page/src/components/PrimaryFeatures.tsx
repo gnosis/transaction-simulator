@@ -1,7 +1,9 @@
-// import screenshotExpenses from '@/images/screenshots/expenses.png'
-// import screenshotPayroll from '@/images/screenshots/payroll.png'
-// import screenshotReporting from '@/images/screenshots/reporting.png'
-// import screenshotVatReturns from '@/images/screenshots/vat-returns.png'
+import accountOverviewDark from '@/images/features/account-overview-dark.png'
+import accountOverviewLight from '@/images/features/account-overview-light.png'
+import balancesDark from '@/images/features/balances-dark.png'
+import balancesLight from '@/images/features/balances-light.png'
+import editDark from '@/images/features/edit-account-dark.png'
+import editLight from '@/images/features/edit-account-light.png'
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react'
 import classNames from 'classnames'
 import { useEffect, useState } from 'react'
@@ -13,25 +15,25 @@ const features = [
     title: 'Secure Execution for Smart Accounts',
     description:
       'Pilot powers institutional-grade treasury management, helping DAOs and other onchain entities reduce overhead and optimize operations through secure, efficient execution.',
-    // image: screenshotPayroll,
+    image: [accountOverviewLight, accountOverviewDark],
   },
   {
     title: 'Seamless Interactions with Dapps',
     description:
       'Pilot integrates Safe workflows directly into dapp interactions, making transactions smooth, intuitive, and cost-efficient.',
-    // image: screenshotExpenses,
+    image: [balancesLight, balancesDark],
   },
   {
     title: 'Maximize Efficiency, Reduce Risk',
     description:
       'Pilot eliminates transaction uncertainty with its advanced batching capabilities and industry-first simulation forks, providing a secure environment to test workflows before execution and maximizing capital efficiency.',
-    // image: screenshotVatReturns,
+    image: [editLight, editDark],
   },
   {
     title: 'Delegate Securely with Advanced Permissions',
     description:
       'Pilot enables secure delegation with fine-grained permissions using Zodiac Roles Modifier — the most expressive conditions system for permissioning EVM calls.',
-    // image: screenshotReporting,
+    image: [],
   },
 ]
 
@@ -128,24 +130,32 @@ export function PrimaryFeatures() {
                 </TabList>
               </div>
               <TabPanels className="lg:col-span-7">
-                {features.map((feature) => (
-                  <TabPanel key={feature.title} unmount={false}>
-                    <div className="relative sm:px-6 lg:hidden">
-                      <div className="absolute -inset-x-4 bottom-[-4.25rem] top-[-6.5rem] bg-white/10 ring-1 ring-inset ring-white/10 sm:inset-x-0 sm:rounded-t-xl" />
-                      <p className="relative mx-auto max-w-2xl text-balance text-base text-white sm:text-center">
-                        {feature.description}
-                      </p>
-                    </div>
-                    <div className="mt-10 w-[45rem] overflow-hidden rounded-xl bg-slate-50 shadow-xl shadow-blue-900/20 sm:w-auto lg:mt-0 lg:w-[67.8125rem]">
-                      <img
-                        className="w-full"
-                        src={feature.image}
-                        alt=""
-                        sizes="(min-width: 1024px) 67.8125rem, (min-width: 640px) 100vw, 45rem"
-                      />
-                    </div>
-                  </TabPanel>
-                ))}
+                {features.map(
+                  ({ title, description, image: [light, dark] }) => (
+                    <TabPanel key={title} unmount={false}>
+                      <div className="relative sm:px-6 lg:hidden">
+                        <div className="absolute -inset-x-4 bottom-[-4.25rem] top-[-6.5rem] bg-white/10 ring-1 ring-inset ring-white/10 sm:inset-x-0 sm:rounded-t-xl dark:ring-black/10" />
+                        <p className="relative mx-auto max-w-2xl text-balance text-base text-white sm:text-center">
+                          {description}
+                        </p>
+                      </div>
+                      <div className="mt-10 w-[45rem] overflow-hidden rounded-xl bg-slate-50 shadow-xl shadow-blue-900/20 sm:w-auto lg:mt-0 lg:w-[67.8125rem]">
+                        <img
+                          className="block w-full dark:hidden"
+                          src={light}
+                          alt=""
+                          sizes="(min-width: 1024px) 67.8125rem, (min-width: 640px) 100vw, 45rem"
+                        />
+                        <img
+                          className="hidden w-full dark:block"
+                          src={dark}
+                          alt=""
+                          sizes="(min-width: 1024px) 67.8125rem, (min-width: 640px) 100vw, 45rem"
+                        />
+                      </div>
+                    </TabPanel>
+                  ),
+                )}
               </TabPanels>
             </>
           )}
