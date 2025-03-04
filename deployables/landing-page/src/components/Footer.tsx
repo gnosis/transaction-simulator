@@ -1,4 +1,4 @@
-import { SiDiscord, SiGithub } from '@icons-pack/react-simple-icons'
+import { SiDiscord, SiGithub, SiX } from '@icons-pack/react-simple-icons'
 import { GhostLinkButton, PilotType, ZodiacOsPlain } from '@zodiac/ui'
 import { Container } from './Container'
 
@@ -34,6 +34,14 @@ export function Footer() {
 
             <GhostLinkButton
               iconOnly
+              to="https://twitter.com/gnosisguild"
+              icon={SiX}
+            >
+              Follow us on X
+            </GhostLinkButton>
+
+            <GhostLinkButton
+              iconOnly
               to="https://discord.com/channels/881881751369175040/884777203332710460"
               icon={SiDiscord}
             >
@@ -41,8 +49,11 @@ export function Footer() {
             </GhostLinkButton>
           </div>
           <p className="mt-6 text-sm text-slate-500 sm:mt-0">
-            Copyright &copy; {new Date().getFullYear()} Zodiac OS. All rights
-            reserved.
+            Copyright &copy; {new Date().getFullYear()}{' '}
+            <a href="https://gnosisguild.org" className="underline">
+              Gnosis Guild
+            </a>
+            . All rights reserved.
           </p>
         </div>
       </Container>
