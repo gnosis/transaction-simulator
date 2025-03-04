@@ -192,7 +192,7 @@ function FeaturesDesktop() {
               />
             ))}
           </TabList>
-          <TabPanels className="rounded-4xl relative mt-20 overflow-hidden bg-zinc-50 px-14 py-16 xl:px-16">
+          <TabPanels className="rounded-4xl bg-radial relative mt-20 overflow-hidden from-zinc-300 to-zinc-50 px-14 py-16 xl:px-16 dark:bg-zinc-800 dark:from-zinc-700 dark:to-zinc-900">
             <div className="-mx-5 flex">
               {features.map(
                 ({ summary, image: [light, dark] }, featureIndex) => (
@@ -208,7 +208,7 @@ function FeaturesDesktop() {
                     }}
                     aria-hidden={featureIndex !== selectedIndex}
                   >
-                    <div className="w-[52.75rem] overflow-hidden rounded-xl bg-white shadow-lg shadow-zinc-900/5 ring-1 ring-zinc-500/10">
+                    <div className="w-[52.75rem] overflow-hidden rounded-xl bg-white shadow-lg shadow-zinc-900/5 ring-1 ring-zinc-500/10 dark:bg-zinc-800">
                       <img
                         className="w-full dark:hidden"
                         src={light}

@@ -64,15 +64,16 @@ export function Header() {
               <PilotType className="h-6 dark:invert" />
             </a>
             <div className="hidden md:flex md:gap-x-6">
-              <GhostLinkButton to="#features">Features</GhostLinkButton>
-              <GhostLinkButton to="#testimonials">Testimonials</GhostLinkButton>
-              <GhostLinkButton to="#pricing">Pricing</GhostLinkButton>
+              <GhostLinkButton reloadDocument to="#features">
+                Features
+              </GhostLinkButton>
+              <GhostLinkButton reloadDocument to="#testimonials">
+                Testimonials
+              </GhostLinkButton>
             </div>
           </div>
           <div className="flex items-center gap-x-5 md:gap-x-8">
             <div className="hidden gap-x-5 md:flex md:gap-x-8">
-              <GhostLinkButton to="/login">Sign in</GhostLinkButton>
-
               <PrimaryLinkButton
                 openInNewWindow
                 to="https://chrome.google.com/webstore/detail/zodiac-pilot/jklckajipokenkbbodifahogmidkekcb"
