@@ -1,17 +1,20 @@
+import accountOverviewDark from '@/images/features/account-overview-dark.png'
+import accountOverviewLight from '@/images/features/account-overview-light.png'
+import balancesDark from '@/images/features/balances-dark.png'
+import balancesLight from '@/images/features/balances-light.png'
+import editDark from '@/images/features/edit-account-dark.png'
+import editLight from '@/images/features/edit-account-light.png'
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react'
 import classNames from 'classnames'
 import { Blocks, Milestone, ShieldCheck } from 'lucide-react'
 import { type ReactNode } from 'react'
 import { Container } from './Container'
-// import screenshotContacts from '@/images/screenshots/contacts.png'
-// import screenshotInventory from '@/images/screenshots/inventory.png'
-// import screenshotProfitLoss from '@/images/screenshots/profit-loss.png'
 
 interface Feature {
   name: React.ReactNode
   summary: string
   description: ReactNode
-  // image: ImageProps['src']
+  image: [light: string, dark: string]
   icon: React.ComponentType
 }
 
@@ -37,7 +40,7 @@ const features: Array<Feature> = [
         </li>
       </ul>
     ),
-    // image: screenshotProfitLoss,
+    image: [accountOverviewLight, accountOverviewDark],
     icon: ShieldCheck,
   },
   {
@@ -60,7 +63,7 @@ const features: Array<Feature> = [
         </li>
       </ul>
     ),
-    // image: screenshotInventory,
+    image: [balancesLight, balancesDark],
     icon: Blocks,
   },
   {
@@ -88,7 +91,7 @@ const features: Array<Feature> = [
         </li>
       </ul>
     ),
-    // image: screenshotContacts,
+    image: [editLight, editDark],
     icon: Milestone,
   },
 ]
@@ -152,7 +155,7 @@ function FeaturesMobile() {
           <div className="relative mt-10 pb-10">
             <div className="absolute -inset-x-4 bottom-0 top-8 bg-zinc-200 sm:-inset-x-6" />
             <div className="relative mx-auto w-[52.75rem] overflow-hidden rounded-xl bg-white shadow-lg shadow-zinc-900/5 ring-1 ring-zinc-500/10">
-              {/* <Image
+              {/* <img
                 className="w-full"
                 src={feature.image}
                 alt=""
@@ -189,29 +192,40 @@ function FeaturesDesktop() {
               />
             ))}
           </TabList>
-          <TabPanels className="rounded-4xl relative mt-20 overflow-hidden bg-zinc-200 px-14 py-16 xl:px-16">
+          <TabPanels className="rounded-4xl relative mt-20 overflow-hidden bg-zinc-50 px-14 py-16 xl:px-16">
             <div className="-mx-5 flex">
-              {features.map((feature, featureIndex) => (
-                <TabPanel
-                  static
-                  key={feature.summary}
-                  className={classNames(
-                    'data-selected:not-data-focus:outline-hidden px-5 transition duration-500 ease-in-out',
-                    featureIndex !== selectedIndex && 'opacity-60',
-                  )}
-                  style={{ transform: `translateX(-${selectedIndex * 100}%)` }}
-                  aria-hidden={featureIndex !== selectedIndex}
-                >
-                  <div className="w-[52.75rem] overflow-hidden rounded-xl bg-white shadow-lg shadow-zinc-900/5 ring-1 ring-zinc-500/10">
-                    {/* <Image
-                      className="w-full"
-                      src={feature.image}
-                      alt=""
-                      sizes="52.75rem"
-                    /> */}
-                  </div>
-                </TabPanel>
-              ))}
+              {features.map(
+                ({ summary, image: [light, dark] }, featureIndex) => (
+                  <TabPanel
+                    static
+                    key={summary}
+                    className={classNames(
+                      'data-selected:not-data-focus:outline-hidden px-5 transition duration-500 ease-in-out',
+                      featureIndex !== selectedIndex && 'opacity-60',
+                    )}
+                    style={{
+                      transform: `translateX(-${selectedIndex * 100}%)`,
+                    }}
+                    aria-hidden={featureIndex !== selectedIndex}
+                  >
+                    <div className="w-[52.75rem] overflow-hidden rounded-xl bg-white shadow-lg shadow-zinc-900/5 ring-1 ring-zinc-500/10">
+                      <img
+                        className="w-full dark:hidden"
+                        src={light}
+                        alt=""
+                        sizes="52.75rem"
+                      />
+
+                      <img
+                        className="hidden w-full dark:block"
+                        src={dark}
+                        alt=""
+                        sizes="52.75rem"
+                      />
+                    </div>
+                  </TabPanel>
+                ),
+              )}
             </div>
             <div className="rounded-4xl pointer-events-none absolute inset-0 ring-1 ring-inset ring-zinc-900/10" />
           </TabPanels>
