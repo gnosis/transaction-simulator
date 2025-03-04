@@ -83,7 +83,7 @@ const features: Array<Feature> = [
           <strong>
             Validate smart contract interactions before execution:
           </strong>{' '}
-          Test transaction flows in a secure, offchain environment to minimize
+          Test transaction flows in a secure, off-chain environment to minimize
           risk and prevent costly failures.
         </li>
       </ul>
@@ -199,7 +199,7 @@ function FeaturesDesktop() {
                     'data-selected:not-data-focus:outline-hidden px-5 transition duration-500 ease-in-out',
                     featureIndex !== selectedIndex && 'opacity-60',
                   )}
-                  style={{ transform: `tranzincX(-${selectedIndex * 100}%)` }}
+                  style={{ transform: `translateX(-${selectedIndex * 100}%)` }}
                   aria-hidden={featureIndex !== selectedIndex}
                 >
                   <div className="w-[52.75rem] overflow-hidden rounded-xl bg-white shadow-lg shadow-zinc-900/5 ring-1 ring-zinc-500/10">
