@@ -113,13 +113,13 @@ export function Testimonials() {
                     </div>
                   </div>
                   <div className="overflow-hidden rounded-full bg-slate-50 dark:bg-slate-900">
-                    <img
+                    {/* <img
                       className="h-14 w-14 object-cover"
                       src={testimonial.author.image}
                       alt=""
                       width={56}
                       height={56}
-                    />
+                    /> */}
                   </div>
                 </figcaption>
               </figure>
