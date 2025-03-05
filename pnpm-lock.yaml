@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 patchedDependencies:
+  '@duneanalytics/client-sdk':
+    hash: xoe7kkeovgvccwz7cdw6ijebp4
+    path: patches/@duneanalytics__client-sdk.patch
   '@gnosis.pm/zodiac':
     hash: qw56tepajizvmumojx6tatibqy
     path: patches/@gnosis.pm__zodiac.patch
@@ -442,7 +445,7 @@ importers:
     dependencies:
       '@duneanalytics/client-sdk':
         specifier: ^0.2.5
-        version: 0.2.5
+        version: 0.2.5(patch_hash=xoe7kkeovgvccwz7cdw6ijebp4)
       '@epic-web/invariant':
         specifier: 1.0.0
         version: 1.0.0
@@ -7945,7 +7948,7 @@ snapshots:
       gonzales-pe: 4.3.0
       node-source-walk: 7.0.0
 
-  '@duneanalytics/client-sdk@0.2.5':
+  '@duneanalytics/client-sdk@0.2.5(patch_hash=xoe7kkeovgvccwz7cdw6ijebp4)':
     dependencies:
       deprecated: 0.0.2
       loglevel: 1.9.2
