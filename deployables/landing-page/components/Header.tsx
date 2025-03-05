@@ -53,7 +53,9 @@ function MobileNavigation() {
   )
 }
 
-export function Header() {
+type HeaderProps = { ttv: string }
+
+export function Header({ ttv }: HeaderProps) {
   return (
     <header className="py-10">
       <Container>
@@ -84,6 +86,13 @@ export function Header() {
             </div>
             <div className="-mr-1 md:hidden">
               <MobileNavigation />
+            </div>
+
+            <div className="flex flex-col">
+              <span className="text-xs font-semibold text-zinc-300">
+                Total value transacted
+              </span>
+              <span className="font-semibold">{ttv}</span>
             </div>
           </div>
         </nav>

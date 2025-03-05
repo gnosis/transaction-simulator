@@ -13,7 +13,8 @@
   },
   "include": [
     ".react-router/types/**/*",
-    "./wranger-configuration.d.ts",
+    "./worker-configuration.d.ts",
+    "./workers",
     "./app",
     "./components",
     "./images",
