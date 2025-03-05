@@ -7,13 +7,16 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "rootDirs": [".", "./.react-router/types"],
     "paths": {
-      "@/images/*": ["./src/images/*"]
+      "@/images/*": ["./images/*"],
+      "@/components": ["./components/index.ts"]
     }
   },
   "include": [
     ".react-router/types/**/*",
     "./wranger-configuration.d.ts",
-    "app",
+    "./app",
+    "./components",
+    "./images",
     "./png.d.ts"
   ]
 }

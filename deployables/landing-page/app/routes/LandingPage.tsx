@@ -6,7 +6,7 @@ import {
   PrimaryFeatures,
   SecondaryFeatures,
   Testimonials,
-} from './components'
+} from '@/components'
 
 export const LandingPage = () => (
   <div className="flex flex-col">
