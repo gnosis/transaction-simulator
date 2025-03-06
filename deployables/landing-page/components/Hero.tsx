@@ -1,6 +1,15 @@
 import { SiGithub, SiGooglechrome } from '@icons-pack/react-simple-icons'
 import { PrimaryLinkButton, SecondaryLinkButton } from '@zodiac/ui'
 import { Container } from './Container'
+import {
+  BalancerLogo,
+  EnsLogo,
+  GnosisLogo,
+  HatsLogo,
+  KarpatkeyLogo,
+  RethinkLogo,
+  SafeLogo,
+} from './logos'
 
 export function Hero() {
   return (
@@ -46,8 +55,36 @@ export function Hero() {
       </div>
       <div className="mt-36 lg:mt-44">
         <p className="font-display text-base text-zinc-900 dark:text-white">
-          Trusted by these six companies so far
+          Trusted by these companies
         </p>
+
+        <ul className="mt-8 flex items-center justify-center gap-x-8 sm:flex-col sm:gap-x-0 sm:gap-y-10 xl:flex-row xl:gap-x-12 xl:gap-y-0">
+          <li>
+            <ul className="flex flex-col items-center gap-y-8 sm:flex-row sm:gap-x-12 sm:gap-y-0">
+              <li className="flex">
+                <SafeLogo />
+              </li>
+              <li className="flex">
+                <KarpatkeyLogo />
+              </li>
+              <li className="flex">
+                <HatsLogo />
+              </li>
+              <li className="flex">
+                <RethinkLogo />
+              </li>
+              <li className="flex">
+                <BalancerLogo />
+              </li>
+              <li className="flex">
+                <EnsLogo />
+              </li>
+              <li className="flex">
+                <GnosisLogo />
+              </li>
+            </ul>
+          </li>
+        </ul>
       </div>
     </Container>
   )
