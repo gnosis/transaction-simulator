@@ -1,4 +1,5 @@
 import { cowswapSetPreSignature } from './cowswapSetPreSignature'
+import { gmxSpecific } from './karpatkeyInstitutional/gmxSpecificMulticall.ts'
 import { kpkBridgeAware } from './karpatkeyInstitutional/kpkBridgeAware'
 import type { TransactionTranslation } from './types'
 import { uniswapMulticall } from './uniswapMulticall'
@@ -8,4 +9,5 @@ export const translations: TransactionTranslation[] = [
   uniswapMulticall,
   cowswapSetPreSignature,
   kpkBridgeAware,
+  gmxSpecific,
 ]
