@@ -14,7 +14,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="en"
-      className="bg-linear-to-b min-h-full from-white to-zinc-50 text-base dark:from-zinc-950 dark:via-zinc-950 dark:to-gray-900"
+      className="scroll-smooth bg-white antialiased dark:bg-zinc-950"
     >
       <head>
         <meta charSet="utf-8" />

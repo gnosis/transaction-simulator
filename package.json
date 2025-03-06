@@ -6,7 +6,8 @@
     "patchedDependencies": {
       "vitest-chrome": "patches/vitest-chrome.patch",
       "@gnosis.pm/zodiac": "patches/@gnosis.pm__zodiac.patch",
-      "evm-proxy-detection": "patches/evm-proxy-detection.patch"
+      "evm-proxy-detection": "patches/evm-proxy-detection.patch",
+      "@duneanalytics/client-sdk": "patches/@duneanalytics__client-sdk.patch"
     }
   },
   "scripts": {

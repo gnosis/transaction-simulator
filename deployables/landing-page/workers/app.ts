@@ -1,8 +1,9 @@
 import { createRequestHandler } from 'react-router'
 
 declare global {
-  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
-  interface CloudflareEnvironment extends Env {}
+  interface CloudflareEnvironment extends Env {
+    DUNE_ANALYTICS_API_KEY: string
+  }
 }
 
 declare module 'react-router' {

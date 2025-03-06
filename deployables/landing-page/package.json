@@ -4,11 +4,16 @@
   "private": true,
   "type": "module",
   "dependencies": {
+    "@duneanalytics/client-sdk": "^0.2.5",
+    "@epic-web/invariant": "1.0.0",
+    "@headlessui/react": "2.2.0",
     "@icons-pack/react-simple-icons": "12.1.0",
     "@react-router/serve": "7.2.0",
     "@types/react": "19.0.10",
     "@types/react-dom": "19.0.4",
+    "@zodiac/env": "workspace:*",
     "@zodiac/ui": "workspace:*",
+    "classnames": "2.5.1",
     "isbot": "5.1.23",
     "lucide-react": "0.477.0",
     "react": "19.0.0",
@@ -29,6 +34,7 @@
     "typescript": "5.8.2",
     "vite": "6.2.0",
     "vite-plugin-open-graph": "2.0.6",
+    "vite-tsconfig-paths": "5.1.4",
     "wrangler": "3.113.0"
   },
   "scripts": {

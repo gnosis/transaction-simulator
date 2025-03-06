@@ -5,12 +5,19 @@
     "baseUrl": ".",
     "types": ["@cloudflare/workers-types", "vite/client"],
     "lib": ["dom", "dom.iterable", "esnext"],
-    "rootDirs": [".", "./.react-router/types"]
+    "rootDirs": [".", "./.react-router/types"],
+    "paths": {
+      "@/images/*": ["./images/*"],
+      "@/components": ["./components/index.ts"]
+    }
   },
   "include": [
     ".react-router/types/**/*",
-    "./wranger-configuration.d.ts",
-    "app",
+    "./worker-configuration.d.ts",
+    "./workers",
+    "./app",
+    "./components",
+    "./images",
     "./png.d.ts"
   ]
 }
