@@ -1,8 +1,3 @@
-// import avatarImage1 from '@/images/avatars/avatar-1.png'
-// import avatarImage2 from '@/images/avatars/avatar-2.png'
-// import avatarImage3 from '@/images/avatars/avatar-3.png'
-// import avatarImage4 from '@/images/avatars/avatar-4.png'
-// import avatarImage5 from '@/images/avatars/avatar-5.png'
 import { Container } from './Container'
 
 const testimonials = [
@@ -24,47 +19,6 @@ const testimonials = [
       // image: avatarImage4,
     },
   },
-
-  // [
-  //   {
-  //     content:
-  //       'The best part about TaxPal is every time I pay my employees, my bank balance doesn’t go down like it used to. Looking forward to spending this extra cash when I figure out why my card is being declined.',
-  //     author: {
-  //       name: 'Leland Kiehn',
-  //       role: 'Founder of Kiehn and Sons',
-  //       image: avatarImage5,
-  //     },
-  //   },
-  //   {
-  //     content:
-  //       'There are so many things I had to do with my old software that I just don’t do at all with TaxPal. Suspicious but I can’t say I don’t love it.',
-  //     author: {
-  //       name: 'Erin Powlowski',
-  //       role: 'COO at Armstrong Inc',
-  //       image: avatarImage2,
-  //     },
-  //   },
-  // ],
-  // [
-  //   {
-  //     content:
-  //       'I used to have to remit tax to the EU and with TaxPal I somehow don’t have to do that anymore. Nervous to travel there now though.',
-  //     author: {
-  //       name: 'Peter Renolds',
-  //       role: 'Founder of West Inc',
-  //       image: avatarImage3,
-  //     },
-  //   },
-  //   {
-  //     content:
-  //       'This is the fourth email I’ve sent to your support team. I am literally being held in jail for tax fraud. Please answer your damn emails, this is important.',
-  //     author: {
-  //       name: 'Amy Hahn',
-  //       role: 'Director at Velocity Industries',
-  //       image: avatarImage4,
-  //     },
-  //   },
-  // ],
 ]
 
 function QuoteIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
@@ -93,7 +47,7 @@ export function Testimonials() {
             mission-critical features.
           </p> */}
         </div>
-        <ul className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:gap-8 lg:mt-20 lg:max-w-none lg:grid-cols-3">
+        <ul className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:gap-8 lg:mt-20 lg:max-w-none lg:grid-cols-2">
           {testimonials.map((testimonial, testimonialIndex) => (
             <li key={testimonialIndex}>
               <figure className="relative rounded-2xl bg-white p-6 shadow-xl shadow-slate-900/10 dark:bg-slate-800 dark:shadow-2xl dark:shadow-slate-300/10">

@@ -14,15 +14,23 @@ export function Footer() {
 
           <nav className="mt-10 text-sm" aria-label="quick links">
             <div className="-my-1 flex justify-center gap-x-6">
-              <GhostLinkButton to="/#features">Features</GhostLinkButton>
-              <GhostLinkButton to="/#testimonials">
-                Testimonials
-              </GhostLinkButton>
-              <GhostLinkButton to="/#pricing">Pricing</GhostLinkButton>
+              <GhostLinkButton to="#features">Features</GhostLinkButton>
+              <GhostLinkButton to="#testimonials">Testimonials</GhostLinkButton>
             </div>
           </nav>
         </div>
-        <div className="flex flex-col items-center border-t border-slate-400/10 py-10 sm:flex-row-reverse sm:justify-between">
+
+        <div className="text-balance text-center text-sm text-slate-500">
+          Zodiac Pilot is an open-source tool built by{' '}
+          <a href="https://gnosisguild.org" className="underline">
+            Gnosis Guild
+          </a>
+          . All information is for informational purposes only and does not
+          constitute legal, financial, or investment advice.{' '}
+          <strong>Use at your own risk.</strong>
+        </div>
+
+        <div className="mt-10 flex flex-col items-center border-t border-zinc-900/10 py-10 sm:flex-row-reverse sm:justify-between dark:border-zinc-100/10">
           <div className="flex">
             <GhostLinkButton
               iconOnly
