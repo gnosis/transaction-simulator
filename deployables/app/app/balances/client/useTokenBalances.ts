@@ -6,7 +6,7 @@ import { useForkUrl } from './ForkContext'
 
 export const useTokenBalances = () => {
   const { address, chainId } = useAccount()
-  const { forkUrl } = useForkUrl()
+  const { forkUrl, vnetId } = useForkUrl()
   const { load, data = [], state } = useFetcher<TokenBalance[]>()
 
   useEffect(() => {
@@ -23,8 +23,12 @@ export const useTokenBalances = () => {
       url.searchParams.set('fork', forkUrl)
     }
 
+    if (vnetId != null) {
+      url.searchParams.set('vnetId', vnetId)
+    }
+
     load(`${url.pathname}${url.search}`)
-  }, [address, chainId, forkUrl, load])
+  }, [address, chainId, forkUrl, vnetId, load])
 
   const tokenBalanceByAddress = useMemo(
     () =>
