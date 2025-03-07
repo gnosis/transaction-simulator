@@ -1,15 +1,7 @@
 import type { JsonRpcError } from '@/types'
-import { ContractFactories, KnownContracts } from '@gnosis.pm/zodiac'
 import { AbiCoder } from 'ethers'
 
-const RolesV1Interface =
-  ContractFactories[KnownContracts.ROLES_V1].createInterface()
-const RolesV1PermissionsInterface =
-  ContractFactories[KnownContracts.PERMISSIONS].createInterface()
-const RolesV2Interface =
-  ContractFactories[KnownContracts.ROLES_V2].createInterface()
-
-export function getRevertData(error: JsonRpcError) {
+function getRevertData(error: JsonRpcError) {
   // The errors thrown when a transaction is reverted use different formats, depending on:
   //  - wallet (MetaMask vs. WalletConnect)
   //  - RPC provider (Infura vs. Alchemy vs. Tenderly)
@@ -53,33 +45,4 @@ export function decodeGenericError(error: JsonRpcError) {
   }
 
   return revertData
-}
-
-export function decodeRolesV1Error(error: JsonRpcError) {
-  const revertData = getRevertData(error)
-  if (revertData.startsWith('0x')) {
-    try {
-      return (
-        RolesV1Interface.parseError(revertData) ||
-        RolesV1PermissionsInterface.parseError(revertData)
-      )
-    } catch {
-      // ignore
-    }
-  }
-  return null
-}
-
-export function decodeRolesV2Error(error: JsonRpcError) {
-  const revertData = getRevertData(error)
-
-  if (revertData.startsWith('0x')) {
-    try {
-      return RolesV2Interface.parseError(revertData)
-    } catch {
-      // ignore
-    }
-  }
-
-  return null
 }
