@@ -7,7 +7,11 @@ import { EOA_ZERO_ADDRESS } from '@zodiac/chains'
 import { CopyToClipboard, Tag } from '@zodiac/ui'
 import { Check, TriangleAlert, UsersRound } from 'lucide-react'
 import { useEffect, useState } from 'react'
-import { checkPermissions, PermissionViolation, type Route } from 'ser-kit'
+import {
+  checkPermissions,
+  PermissionViolation,
+  type Route as SerRoute,
+} from 'ser-kit'
 import { Translate } from './Translate'
 
 type Props = {
@@ -36,7 +40,7 @@ export const RolePermissionCheck = ({
     const checkableRoute = {
       ...route,
       initiator: route.initiator ?? EOA_ZERO_ADDRESS,
-    } as Route
+    } as SerRoute
 
     checkPermissions([transactionState.transaction], checkableRoute).then(
       ({ success, error }) => {
