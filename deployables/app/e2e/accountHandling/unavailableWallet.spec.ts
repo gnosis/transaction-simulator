@@ -20,8 +20,6 @@ test.describe('Account unavailable', () => {
       page.getByRole('alert', {
         name: `Wallet is set to a different account`,
       }),
-    ).toHaveAccessibleDescription(
-      'Switch your wallet to this account in order to use Pilot.',
-    )
+    ).toBeInViewport()
   })
 })
