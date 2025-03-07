@@ -1,7 +1,6 @@
 import { getAvailableChains } from '@/balances-server'
 import {
   FakeBrowser,
-  MinimumVersion,
   Navigation,
   PilotStatus,
   ProvidePilotStatus,
@@ -97,11 +96,9 @@ const PageLayout = ({ loaderData: { chains } }: Route.ComponentProps) => {
                 </SidebarBody>
 
                 <SidebarFooter>
-                  <MinimumVersion version="3.3.2">
-                    <div className="flex justify-center py-8">
-                      <PilotStatus />
-                    </div>
-                  </MinimumVersion>
+                  <div className="flex justify-center py-8">
+                    <PilotStatus />
+                  </div>
 
                   <aside className="flex justify-center p-2">
                     <GhostLinkButton
