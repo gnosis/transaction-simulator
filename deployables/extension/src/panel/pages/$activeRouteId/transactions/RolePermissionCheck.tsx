@@ -2,90 +2,17 @@ import { useExecutionRoute } from '@/execution-routes'
 import { useProvider } from '@/providers-ui'
 import type { TransactionState } from '@/state'
 import { useApplicableTranslation } from '@/transaction-translation'
-import type { Eip1193Provider, ExecutionRoute, JsonRpcError } from '@/types'
-import {
-  decodeGenericError,
-  decodeRolesV1Error,
-  decodeRolesV2Error,
-} from '@/utils'
 import { invariant } from '@epic-web/invariant'
+import { EOA_ZERO_ADDRESS } from '@zodiac/chains'
 import { CopyToClipboard, Tag } from '@zodiac/ui'
-import { toQuantity, ZeroAddress } from 'ethers'
 import { Check, TriangleAlert, UsersRound } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import {
-  ExecutionActionType,
-  planExecution,
-  unprefixAddress,
-  type MetaTransactionRequest,
+  checkPermissions,
+  PermissionViolation,
   type Route as SerRoute,
 } from 'ser-kit'
 import { Translate } from './Translate'
-
-const simulateRolesTransaction = async (
-  encodedTransaction: MetaTransactionRequest,
-  route: ExecutionRoute,
-  provider: Eip1193Provider,
-) => {
-  const routeWithInitiator = (
-    route.initiator ? route : { ...route, initiator: ZeroAddress }
-  ) as SerRoute
-  const plan = await planExecution([encodedTransaction], routeWithInitiator, {
-    safeTransactionProperties: (route.waypoints || []).reduce(
-      (result, waypoint) => ({
-        ...result,
-        [waypoint.account.prefixedAddress]: { nonce: 'override' },
-      }),
-      {},
-    ),
-  })
-
-  // TODO generalize permission checking logic (ser-kit)
-  invariant(plan.length <= 1, 'Multi-step execution not yet supported')
-
-  const [action] = plan
-
-  invariant(
-    action != null && action.type === ExecutionActionType.EXECUTE_TRANSACTION,
-    'Only transaction execution is currently supported',
-  )
-
-  const from = unprefixAddress(action.from)
-  const tx = {
-    ...action.transaction,
-    from,
-    value: toQuantity(BigInt(action.transaction.value || 0)),
-  }
-
-  try {
-    await provider.request({
-      method: 'eth_estimateGas',
-      params: [tx],
-    })
-  } catch (e) {
-    const decodedError =
-      decodeRolesV1Error(e as JsonRpcError) ||
-      decodeRolesV2Error(e as JsonRpcError)
-
-    if (decodedError) {
-      if (decodedError.name === 'ModuleTransactionFailed') {
-        return false
-      }
-
-      if (decodedError.name === 'ConditionViolation') {
-        return RolesV2Status[decodedError.args.status]
-      }
-      return decodedError.name
-    }
-
-    const genericError = decodeGenericError(e as JsonRpcError)
-    if (genericError === 'Module not authorized') {
-      return 'Not a member of any role'
-    }
-  }
-
-  return false
-}
 
 type Props = {
   transactionState: TransactionState
@@ -96,7 +23,9 @@ export const RolePermissionCheck = ({
   transactionState,
   mini = false,
 }: Props) => {
-  const [error, setError] = useState<string | undefined | false>(undefined)
+  const [error, setError] = useState<PermissionViolation | false | undefined>(
+    undefined,
+  )
   const route = useExecutionRoute()
   const provider = useProvider()
 
@@ -106,13 +35,18 @@ export const RolePermissionCheck = ({
     let canceled = false
     if (!provider) return
 
-    simulateRolesTransaction(
-      transactionState.transaction,
-      route,
-      provider,
-    ).then((error) => {
-      if (!canceled) setError(error)
-    })
+    invariant(!!route.waypoints, 'Route must have waypoints')
+
+    const checkableRoute = {
+      ...route,
+      initiator: route.initiator ?? EOA_ZERO_ADDRESS,
+    } as SerRoute
+
+    checkPermissions([transactionState.transaction], checkableRoute).then(
+      ({ success, error }) => {
+        if (!canceled) setError(success ? false : error)
+      },
+    )
 
     return () => {
       canceled = true
@@ -167,42 +101,4 @@ export const RolePermissionCheck = ({
       </div>
     </div>
   )
-}
-
-enum RolesV2Status {
-  Ok,
-  /** Role not allowed to delegate call to target address */
-  DelegateCallNotAllowed,
-  /** Role not allowed to call target address */
-  TargetAddressNotAllowed,
-  /** Role not allowed to call this function on target address */
-  FunctionNotAllowed,
-  /** Role not allowed to send to target address */
-  SendNotAllowed,
-  /** Or condition not met */
-  OrViolation,
-  /** Nor condition not met */
-  NorViolation,
-  /** Parameter value is not equal to allowed */
-  ParameterNotAllowed,
-  /** Parameter value less than allowed */
-  ParameterLessThanAllowed,
-  /** Parameter value greater than maximum allowed by role */
-  ParameterGreaterThanAllowed,
-  /** Parameter value does not match */
-  ParameterNotAMatch,
-  /** Array elements do not meet allowed criteria for every element */
-  NotEveryArrayElementPasses,
-  /** Array elements do not meet allowed criteria for at least one element */
-  NoArrayElementPasses,
-  /** Parameter value not a subset of allowed */
-  ParameterNotSubsetOfAllowed,
-  /** Bitmask exceeded value length */
-  BitmaskOverflow,
-  /** Bitmask not an allowed value */
-  BitmaskNotAllowed,
-  CustomConditionViolation,
-  AllowanceExceeded,
-  CallAllowanceExceeded,
-  EtherAllowanceExceeded,
 }
