@@ -65,7 +65,7 @@
     "vitest": "3.0.8",
     "vitest-chrome": "0.1.0"
   },
-  "packageManager": "pnpm@9.15.7",
+  "packageManager": "pnpm@10.6.1",
   "dependencies": {
     "@epic-web/invariant": "1.0.0",
     "@gnosis.pm/zodiac": "4.0.3",

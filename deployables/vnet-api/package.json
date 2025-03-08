@@ -17,5 +17,5 @@
     "check-types": "tsc --noEmit",
     "lint": "eslint . --max-warnings=0"
   },
-  "packageManager": "pnpm@9.15.7"
+  "packageManager": "pnpm@10.6.1"
 }
